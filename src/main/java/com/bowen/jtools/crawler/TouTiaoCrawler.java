@@ -10,13 +10,18 @@ import com.bowen.jtools.crawler.utils.WebDriver;
 public class TouTiaoCrawler {
 
     public static String getHtmlByUrl(String url) {
-        try {
-            WebDriver webDriver = WebDriver.newDriver();
-            webDriver.get(url);
-            return webDriver.findElementByTagName("html").getAttribute("innerHTML");
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "";
+
+        WebDriver webDriver = WebDriver.newDriver();
+
+        while (true) {
+            try {
+                webDriver.get(url);
+//                return webDriver.findElementByTagName("html").getAttribute("innerHTML");
+                Thread.sleep(3000);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "";
+            }
         }
     }
 

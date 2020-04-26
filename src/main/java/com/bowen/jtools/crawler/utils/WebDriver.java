@@ -21,8 +21,8 @@ public class WebDriver extends ChromeDriver implements AutoCloseable {
 
     public static WebDriver newDriver() {
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setHeadless(true);
-        chromeOptions.addArguments("--no-sandbox");
+//        chromeOptions.setHeadless(true);
+//        chromeOptions.addArguments("--no-sandbox");
 
         if (WebDriver.binaryPath != null) {
             chromeOptions.setBinary(binaryPath);
