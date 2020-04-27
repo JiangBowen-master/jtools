@@ -11,6 +11,18 @@
     <dependencies>
 
         <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.hankcs</groupId>
             <artifactId>hanlp</artifactId>
             <version>portable-1.7.0</version>
