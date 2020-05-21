@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
  * Created by: jiangbowen <jiangbowen@xiaomi.com>.
  * On 19-5-23
  */
-public class StringUtil {
+public class BWStringUtils {
 
     private static DocVectorModel docVectorModel;
 
@@ -95,16 +95,18 @@ public class StringUtil {
         System.out.println(relativelyPath);
 
         System.out.println("\\N".isEmpty());
-        String str1 = "刘强东案新视频曝光：3小时饭局女生共饮18杯";
-        String str2 = "刘强东案仍扑朔迷离：神秘人连发“完整视频”，匿名邮件曝录音";
+        String str1 = "马保国被业余选手4秒KO，却击败过格斗冠军，李连杰的评价很客观";
+//        String str2 = "太极掌门马保国4秒被50岁大叔KO";
+//        String str2 = "特朗普发出威胁：将永久冻结世卫组织经费";
+        String str2 = "翼装飞行失联女生身亡 张家界天门山景区：降落伞未打开";
         System.out.println(getSimilarityUsingModel(str1, str2));
 
         while(true) {
             long startTime = System.currentTimeMillis();
             // refresh crawledTitles n 小时内抓取的, 重新load
             try {
-                for(int i = 0; i < 2000; i++) {
-                    getSimilarityUsingModel("正式成为世界非遗,中国藏医药浴法申遗经么?", "正式成为世界遗,中医药浴法申遗经历么?");
+                for(int i = 0; i < 20000; i++) {
+                    getSimilarityUsingModel("正式成为世界非遗,中国藏医药浴法申遗经么?" + i, "正式成为世界遗,中医药浴法申遗经历么?" + i + 2);
                 }
             }
             catch (Exception ex) {

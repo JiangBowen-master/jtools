@@ -1,6 +1,6 @@
 package com.bowen.jtools.nlp;
 
-import com.bowen.jtools.utils.FileUtil;
+import com.bowen.jtools.utils.BWFileUtils;
 
 /**
  * Copyright (c) 2019 XiaoMi Inc. All Rights Reserved.
@@ -10,7 +10,7 @@ import com.bowen.jtools.utils.FileUtil;
 public class Test {
 
     public static void testFileUtil() {
-        System.out.println(FileUtil.getParentLevel("../path"));
+        System.out.println(BWFileUtils.getParentLevel("../path"));
         System.out.println(System.getProperty("user.dir"));
     }
 

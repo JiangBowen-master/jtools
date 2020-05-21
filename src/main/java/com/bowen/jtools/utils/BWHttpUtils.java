@@ -28,9 +28,9 @@ import java.util.List;
  * Created by: jiangbowen <jiangbowen@xiaomi.com>.
  * On 2020/4/27
  */
-public class HttpUtils {
+public class BWHttpUtils {
 
-    protected static final Logger logger = LoggerFactory.getLogger(HttpUtils.class);
+    protected static final Logger logger = LoggerFactory.getLogger(BWHttpUtils.class);
 
     // get
     public static String get(String uri) {

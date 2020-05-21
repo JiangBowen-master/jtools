@@ -1,6 +1,6 @@
 package com.bowen.jtools.nlp.utils;
 
-import com.bowen.jtools.utils.StringUtil;
+import com.bowen.jtools.utils.BWStringUtils;
 import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.seg.common.Term;
 
@@ -26,7 +26,7 @@ public class NgramTools {
 
         List<String> nGramList = new ArrayList<>();
 
-        char titleCharArr[] = StringUtil.filterSpecialCharacter(title).toCharArray();
+        char titleCharArr[] = BWStringUtils.filterSpecialCharacter(title).toCharArray();
         int titleLength = titleCharArr.length;
 
         for (int gramWindow = gramNum; gramWindow > 0; gramWindow--) {
@@ -74,7 +74,7 @@ public class NgramTools {
 
         StringBuilder sbInitial = new StringBuilder();
         words.forEach(word -> {
-            if (!StringUtil.filterSpecialCharacter(word).equals(""))
+            if (!BWStringUtils.filterSpecialCharacter(word).equals(""))
                 sbInitial.append(word + " ");
         });
         nGramList.add(sbInitial.toString());
@@ -87,7 +87,7 @@ public class NgramTools {
                 for (int j = i; j < i + windowSize; j++) {
                     String curWord = words.get(j);
                     // 过滤掉特殊字符后训练模型
-                    if (StringUtil.filterSpecialCharacter(curWord).equals(""))
+                    if (BWStringUtils.filterSpecialCharacter(curWord).equals(""))
                         continue;
                     sb.append(words.get(j) + " ");
                 }

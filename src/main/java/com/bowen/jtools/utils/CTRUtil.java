@@ -38,6 +38,8 @@ public class CTRUtil {
         System.out.println(getWalsonCtr(5, 10));
         System.out.println(getWalsonCtr(50, 100));
         System.out.println(getWalsonCtr(500, 1000));
+
+        System.out.println(getWalsonCtr(32, 34));
     }
 
 }

@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
  * Created by: jiangbowen <jiangbowen@xiaomi.com>.
  * On 19-5-23
  */
-public class FileUtil {
+public class BWFileUtils {
 
     public static int getParentLevel(String relativePath) {
 
