@@ -2,6 +2,7 @@ package com.bowen.jtools.utils;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -50,6 +51,11 @@ public class BWDateTimeUtils {
         return formatter.format(new Date(timeStamp));
     }
 
+    public static final SimpleDateFormat publishTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public static double getGapHours(String publishTime) {
+        return (System.currentTimeMillis() - getTimeStamp(publishTime, publishTimeFormat)) * 1.0 / 1000 / 60 / 60;
+    }
+
     /**
      * 显示时间函数
      * @param timestamp
@@ -68,12 +74,31 @@ public class BWDateTimeUtils {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
+
+        System.out.println(LocalDateTime.now().getHour());
+
+
+        long curPublishTImeTimestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2020-05-24 19:43:00").getTime();
+        long curTimestamp = System.currentTimeMillis();
+        System.out.println(curTimestamp - curPublishTImeTimestamp);
+
+
         // java8
         LocalDateTime date = LocalDateTime.now().minus(1, ChronoUnit.DAYS);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         System.out.println(date.format(formatter) + " 00:00:00");
         System.out.println(LocalDateTime.now().minus(2, ChronoUnit.DAYS).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+
+        System.out.println(getGapHours("2020-05-22 13:54:28"));
+
+        try {
+            System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2020-05-22 13:54:28"));
+        } catch (Exception e) {
+
+        }
+
+
     }
 
 }
