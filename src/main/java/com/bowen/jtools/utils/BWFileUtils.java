@@ -22,6 +22,13 @@ public class BWFileUtils {
         return parentLevel;
     }
 
+    // avoid to read all date in mem
+    public Scanner getFileScanner(String path) throws FileNotFoundException {
+        Scanner scan = new Scanner(new FileInputStream(path));
+        scan.useDelimiter("\n");
+        return scan;
+    }
+
     /**
      * 根据路径获取该路径下所有File
      *
@@ -160,6 +167,26 @@ public class BWFileUtils {
     // 清空文件
     public static void emptyFile(String filePath) {
         writeAllLines(filePath, Arrays.asList(""), false);
+    }
+
+    public static void main(String[] args) {
+
+        String baseDir = "/home/work/jiangbowen/high_interact_articles/ann_history_data/";
+        File file = new File(baseDir);
+        File[] files = file.listFiles();
+
+        assert files != null;
+        for (File f : files) {
+            String name = f.getName();
+            String partitionName = name.split("=")[1];
+            System.out.println(partitionName);
+            File[] realFileList = f.listFiles();
+            if (realFileList != null && realFileList.length != 0) {
+                File s = realFileList[0];
+                System.out.println(s.getPath());
+            }
+        }
+
     }
 
 

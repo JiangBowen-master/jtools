@@ -5,6 +5,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -22,14 +23,22 @@ public class BWJsonUtils {
 
     public static void main(String[] args) {
         // test1();
-        // test2();
-        test3();
+         test2();
+//        test3();
     }
 
     private static void test2() {
         String json = "{\"id\":\"netease_II01MXKG5HP9BLV\",\"title\":\"特朗普发出威胁：将永久冻结世卫组织经费\",\"cover\":\"https://xiaomi-browser-nos.yiyouliao.com/icovr-20200519-5c6293121c0d37590304e6d271f998b5.jpg?time\\u003d1589874987\\u0026signature\\u003dE5A283A94A30025DC9892C9D86E375EC\",\"url\":\"https://yiyouliao.com/api-server/rss/xiaomi/item/II01MXKG5HP9BLV.html?version\\u003d2\\u0026mibusinessId\\u003dxiangkan\\u0026env\\u003dtest\",\"publishTime\":\"2020-05-19 15:51:37\",\"lbsLocations\":[]}";
         NavigateArticleItem navigateArticleItem = gson.fromJson(json, NavigateArticleItem.class);
         System.out.println(navigateArticleItem.toString());
+
+        // JSon串在被串行化后保存在文件中，读取字符串时，是不能直接拿来用JSON.parse()解析为JSON  对象的。因为它是一个字符串，不是一个合法的JSON对象格式。
+        //
+        System.out.println(json);
+        json = "{\\\"id\\\":\\\"netease_II01MXKG5HP9BLV\\\",\\\"title\\\":\\\"特朗普发出威胁：将永久冻结世卫组织经费\\\"";
+        System.out.println(json);
+        System.out.println(StringEscapeUtils.unescapeJava(json));
+
     }
 
     private static void test1() {
