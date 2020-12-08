@@ -7,7 +7,7 @@ import static java.lang.Math.sqrt;
  * Created by: jiangbowen <jiangbowen@xiaomi.com>.
  * On 2020/5/8
  */
-public class CTRUtil {
+public class BWCTRUtils {
 
     /**
      * p —— 概率，即点击的概率，也就是 CTR

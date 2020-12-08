@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
@@ -132,6 +133,26 @@ public class BWDateTimeUtils {
 
         System.out.println(getTimeStrViaDayDelta(-1));
         System.out.println(getTimeStrViaDayDelta(-1, DateTimeFormatter.ofPattern("yyyyMMdd")));
+
+        System.out.println(LocalDateTime.now().minus(4, ChronoUnit.DAYS).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        System.out.println(LocalDateTime.now().minus(4, ChronoUnit.DAYS).toEpochSecond(ZoneOffset.of("+8")));
+        System.out.println(LocalDateTime.now().minus(4, ChronoUnit.DAYS).toInstant(ZoneOffset.of("+8")).toEpochMilli());
+
+        // 根据日期字符串获取另一格式的日期字符串
+        LocalDate publishTimeDate = LocalDate.parse("2020-05-19 15:21:01", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        System.out.println(publishTimeDate.toString());
+        String curMilevusPartitionName = publishTimeDate.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
+        System.out.println(curMilevusPartitionName);
+
+        LocalDate publishTimeDate2 = LocalDate.parse("2020-08-05 11:03:01", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        LocalDate publishTimeDate3 = LocalDate.parse("2020-08-01 01:03:01", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        String validSatrtTime = LocalDate.now().minusDays(2).toString();
+        System.out.println(publishTimeDate2.toString().compareTo(validSatrtTime));
+        System.out.println(publishTimeDate3.toString().compareTo(validSatrtTime));
+
+        // LocalDateTime 包含年月日时间信息
+        // LocalDate 仅包含年月日信息, 可以解析带有时分秒时间信息的日期字符串, 但解析后不能反解析format至带有时分秒时间信息的日期字符串
+        // LocalTime 仅包含时间信息
 
     }
 

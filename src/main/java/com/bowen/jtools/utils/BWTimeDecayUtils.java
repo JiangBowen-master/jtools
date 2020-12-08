@@ -5,7 +5,7 @@ package com.bowen.jtools.utils;
  * Created by: jiangbowen <jiangbowen@xiaomi.com>.
  * On 19-1-22
  */
-public class TimeDecayUtil {
+public class BWTimeDecayUtils {
 
     /**
      * 时间衰减 Fnc

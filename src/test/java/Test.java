@@ -29,15 +29,22 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        Person person = new Person();
-        person.setName("233");
-        System.out.println(person);
+//        Person person = new Person();
+//        person.setName("233");
+//        System.out.println(person);
+//
+//        int i = 1;
+//        double j = 2.0;
+//
+//        if (i < j) {
+//            System.out.println(23333);
+//        }
 
-        int i = 1;
-        double j = 2.0;
-
-        if (i < j) {
-            System.out.println(23333);
+        String test = "qiehao_20200322V0MI6400\thttp://puui.qpic.cn/qqvideo/0/p0938w1573b/0\t0\t[\"4.2\",\"0.0\"]\t\t1";
+        String testArr[] = test.split("\\s+");
+        System.out.println(testArr.length);
+        for (int i = 0; i < testArr.length; i++) {
+            System.out.println("第" + i + "列的值为:" + testArr[i]);
         }
     }
 
