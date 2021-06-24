@@ -46,6 +46,9 @@ public class Test {
         for (int i = 0; i < testArr.length; i++) {
             System.out.println("第" + i + "列的值为:" + testArr[i]);
         }
+
+        System.out.println("test".contains(""));
+
     }
 
 }
